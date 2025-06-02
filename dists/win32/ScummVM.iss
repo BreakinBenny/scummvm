@@ -3,9 +3,9 @@
 ; version in one installer, we just use the 32 bit version here
 ; for simplicity.
 #define AppName "ScummVM"
-#define FileVersion=GetFileVersion('scummvm-i686.exe')
-#define ProductVersion=GetStringFileInfo('scummvm-i686.exe', 'ProductVersion')
-#define Copyright=GetStringFileInfo('scummvm-i686.exe', 'LegalCopyright')
+#define FileVersion=GetFileVersion('..\..\win32dist-mingw\scummvm-i686.exe')
+#define ProductVersion=GetStringFileInfo('..\..\win32dist-mingw\scummvm-i686.exe', 'ProductVersion')
+#define Copyright=GetStringFileInfo('..\..\win32dist-mingw\scummvm-i686.exe', 'LegalCopyright')
 
 [Setup]
 AppCopyright={#Copyright}
@@ -94,7 +94,11 @@ Filename: {app}\ScummVM.exe; Parameters: "--no-console"; Flags: nowait skipifdoe
 Type: files; Name: {app}\SDL2.dll
 Type: files; Name: {app}\SDL2_net.dll
 Type: files; Name: {app}\discord-rpc.dll
-Type: files; Name: {app}\LICENSES
+Type: files; Name: {app}\LICENSES\*
+Type: files; Name: {app}\*.html
+Type: files; Name: {app}\*.txt
+Type: files; Name: {app}\*.pdf
+Type: dirifempty; Name: {app}\LICENSES
 
 [UninstallDelete]
 Type: files; Name: {app}\ISTool.url
@@ -115,12 +119,12 @@ Source: ..\..\win32dist-mingw\doc\es\InicioRapido.txt; DestDir: {app}; Flags: ig
 Source: ..\..\win32dist-mingw\doc\fr\DemarrageRapide.txt; DestDir: {app}; Flags: ignoreversion; Languages: french
 Source: ..\..\win32dist-mingw\doc\it\GuidaRapida.txt; DestDir: {app}; Flags: ignoreversion; Languages: italian
 Source: ..\..\win32dist-mingw\doc\no-nb\HurtigStart.txt; DestDir: {app}; Flags: ignoreversion; Languages: norwegian
-Source: ..\..\win32dist-mingw\doc\sv\Snabbstart.txt; DestDir: {app}; Flags: ignoreversion; Languages: swedish
+Source: ..\..\win32dist-mingw\doc\se\Snabbstart.txt; DestDir: {app}; Flags: ignoreversion; Languages: swedish
 
 ; README and DOCUMENTATION
 Source: ..\..\win32dist-mingw\doc\cz\PrectiMe.txt; DestDir: {app}; Flags: ignoreversion; Languages: czech
 Source: ..\..\win32dist-mingw\doc\de\LIESMICH.txt; DestDir: {app}; Flags: ignoreversion; Languages: german
-Source: ..\..\win32dist-mingw\doc\sv\LasMig.txt; DestDir: {app}; Flags: ignoreversion; Languages: swedish
+Source: ..\..\win32dist-mingw\doc\se\LasMig.txt; DestDir: {app}; Flags: ignoreversion; Languages: swedish
 
 ; ScummVM executables and libraries
 ; for 32 bit aka. i686:
